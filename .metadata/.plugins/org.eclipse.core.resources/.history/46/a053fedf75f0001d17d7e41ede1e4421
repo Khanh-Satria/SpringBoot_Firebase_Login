@@ -1,0 +1,16 @@
+package com.springboot.sharework.controller;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.function.EntityResponse;
+
+import com.springboot.sharework.payload.RegisterDto;
+
+@RestController
+public class AuthContronller {
+
+	public EntityResponse<String> createUser(@RequestBody RegisterDto registerDto){
+		
+		return new EntityResponse
+	}
+}

@@ -1,0 +1,5 @@
+package com.springboot.sharework.payload;
+
+public class RegisterDto {
+
+}

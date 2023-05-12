@@ -1,0 +1,6 @@
+package com.springboot.sharework.payload;
+
+public class SignInResponse {
+
+	private String token;
+}

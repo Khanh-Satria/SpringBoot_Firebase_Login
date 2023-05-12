@@ -1,0 +1,5 @@
+# Firebase config
+firebase.projectId=<your-project-id>
+firebase.databaseUrl=https://<your-project-id>.firebaseio.com
+firebase.serviceAccountPath=classpath:serviceAccountKey.json
+

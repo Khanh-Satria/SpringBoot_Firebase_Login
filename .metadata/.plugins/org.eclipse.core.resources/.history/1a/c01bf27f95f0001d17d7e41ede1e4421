@@ -1,0 +1,43 @@
+package com.springboot.sharework.config.service;
+
+import org.springframework.stereotype.Service;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.UserRecord;
+import com.google.firebase.auth.UserRecord.CreateRequest;
+import com.google.firebase.auth.internal.FirebaseCustomAuthToken;
+import com.springboot.sharework.payload.RegisterDto;
+
+@Service
+public class AuthenServiceImpl {
+
+	
+	public String createUser(RegisterDto registerDto) throws FirebaseAuthException {
+		
+		CreateRequest request = new CreateRequest()
+			    .setEmail(registerDto.getEmail())
+			    .setEmailVerified(false)
+			    .setPassword(registerDto.getPassword())
+			    .setPhoneNumber(registerDto.getPhoneNumber())
+			    .setDisplayName(registerDto.getDisplayName())
+			    .setDisabled(false);
+
+			UserRecord userRecord = FirebaseAuth.getInstance().createUser(request);
+			
+			return "Successfully created new user: " + userRecord.getUid();
+	}
+	
+	
+	public String findUserByEmail(String email) throws FirebaseAuthException {
+		
+		UserRecord userRecord = FirebaseAuth.getInstance().getUserByEmail(email);
+		if(userRecord != null) {
+			return "Successfully fetched user data: " + userRecord.getEmail();
+		}
+		
+		return " Not successfully fetched user data: " + email;
+	
+	}
+	
+}

@@ -1,0 +1,12 @@
+package com.springboot.sharework.payload;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+public class LoginDto {
+	
+	private String email;
+	private String password;
+}

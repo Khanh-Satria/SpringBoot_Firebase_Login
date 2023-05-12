@@ -1,0 +1,33 @@
+package com.springboot.sharework.config.service;
+
+import org.springframework.stereotype.Service;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserRecord;
+import com.google.firebase.auth.UserRecord.CreateRequest;
+import com.springboot.sharework.payload.RegisterDto;
+
+@Service
+public class AuthenServiceImpl {
+
+	private FirebaseAuth firebaseAuth;
+	
+	public AuthenServiceImpl(FirebaseAuth firebaseAuth) {
+		this.firebaseAuth = firebaseAuth;
+	}
+	
+	public String createUser(RegisterDto registerDto) {
+		
+		CreateRequest request = new CreateRequest()
+			    .setEmail(registerDto.getEmail())
+			    .setEmailVerified(false)
+			    .setPassword(registerDto.getPassword())
+			    .setPhoneNumber(registerDto.getPhoneNumber())
+			    .setDisplayName(registerDto.getDisplayName())
+			    .setDisabled(false);
+
+			UserRecord userRecord = firebaseAuth.getInstance().createUser(request);
+			System.out.println("Successfully created new user: " + userRecord.getUid());
+	}
+	
+}

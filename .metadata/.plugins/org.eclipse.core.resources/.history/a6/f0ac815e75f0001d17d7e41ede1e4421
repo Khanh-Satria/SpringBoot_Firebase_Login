@@ -1,0 +1,5 @@
+package com.springboot.sharework.controller;
+
+public class AuthContronller {
+
+}

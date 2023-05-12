@@ -1,0 +1,26 @@
+package com.springboot.sharework.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.function.EntityResponse;
+
+import com.google.firebase.auth.FirebaseAuthException;
+import com.springboot.sharework.config.service.AuthenServiceImpl;
+import com.springboot.sharework.payload.RegisterDto;
+
+@RestController
+public class AuthContronller {
+
+	private AuthenServiceImpl authenService;
+	
+	@PostMapping("/register")
+	public ResponseEntity<String> createUser(@RequestBody RegisterDto registerDto) throws FirebaseAuthException{
+		
+		String response = authenService.createUser(registerDto);
+		
+		return new  ResponseEntity<>(response, HttpStatus.CREATED);
+	}
+}

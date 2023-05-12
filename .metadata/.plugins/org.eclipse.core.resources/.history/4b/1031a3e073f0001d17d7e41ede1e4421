@@ -1,0 +1,5 @@
+package com.springboot.sharework.config.service;
+
+public class AuthenServiceImpl {
+
+}

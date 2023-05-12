@@ -1,0 +1,71 @@
+package com.springboot.sharework.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.google.firebase.auth.FirebaseAuthException;
+import com.springboot.sharework.config.service.AuthenServiceImpl;
+import com.springboot.sharework.payload.LoginDto;
+import com.springboot.sharework.payload.RegisterDto;
+import com.springboot.sharework.payload.SignInRequest;
+import com.springboot.sharework.payload.SignInResponse;
+
+@RestController
+@RequestMapping("api/auth")
+public class AuthContronller {
+
+	private AuthenServiceImpl authenService;
+	
+	public AuthContronller(AuthenServiceImpl authenService) {
+		this.authenService = authenService;
+	}
+	
+	@PostMapping("/register")
+	public ResponseEntity<String> createUser(@RequestBody RegisterDto registerDto) throws FirebaseAuthException{
+		
+		String response = authenService.createUser(registerDto);
+		
+		return new  ResponseEntity<>(response, HttpStatus.CREATED);
+	}
+	
+	
+	@PostMapping("/login")
+	public ResponseEntity<String> login(@RequestBody LoginDto loginDto) throws FirebaseAuthException{
+		
+		String response = authenService.findUserByEmail(loginDto.getEmail());
+		
+		return new  ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
+	@PostMapping("/signin")
+    public ResponseEntity<SignInResponse> signIn(@RequestBody SignInRequest request) {
+        // Gửi yêu cầu POST đến API Firebase Authentication
+        RestTemplate restTemplate = new RestTemplate();
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("email", request.getEmail());
+        params.add("password", request.getPassword());
+        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, null);
+        ResponseEntity<String> responseEntity = restTemplate.exchange(
+                "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=<API_KEY>",
+                HttpMethod.POST,
+                requestEntity,
+                String.class
+        );
+        String responseBody = responseEntity.getBody();
+
+        // Parse token từ phản hồi
+        JsonObject jsonObject = JsonParser.parseString(responseBody).getAsJsonObject();
+        String token = jsonObject.get("idToken").getAsString();
+
+        // Trả về token
+        SignInResponse response = new SignInResponse(token);
+        return ResponseEntity.ok(response);
+    }
+}

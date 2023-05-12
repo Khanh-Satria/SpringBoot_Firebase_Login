@@ -1,0 +1,7 @@
+package com.springboot.sharework.payload;
+
+public class SignInRequest {
+
+	private String email;
+    private String password;
+}

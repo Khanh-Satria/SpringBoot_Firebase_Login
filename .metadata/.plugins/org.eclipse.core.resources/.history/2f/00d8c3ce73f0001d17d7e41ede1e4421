@@ -1,0 +1,9 @@
+package com.springboot.sharework.payload;
+
+public class RegisterDto {
+
+	private String email;
+	private String password;
+	private String phoneNumber;
+	private String displayName;
+}

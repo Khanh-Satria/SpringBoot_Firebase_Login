@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="com.google.firebase.auth.UserRecord.CreateRequest"/>
+    <fullyQualifiedTypeName name="com.google.firebase.auth.UserRecord"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.payload.RegisterDto"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.function.EntityResponse"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.controller.AuthContronller"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.config.service.AuthenServiceImpl"/>
+    <fullyQualifiedTypeName name="com.google.firebase.auth.internal.FirebaseCustomAuthToken"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.payload.LoginDto"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="org.springframework.web.client.RestTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.util.MultiValueMap"/>
+    <fullyQualifiedTypeName name="org.springframework.util.LinkedMultiValueMap"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpMethod"/>
+    <fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
+    <fullyQualifiedTypeName name="com.google.api.client.json.JsonParser"/>
+    <fullyQualifiedTypeName name="com.google.gson.JsonParser"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.google.api.client.util.Value"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.payload.SignInRequest"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.payload.SignInResponse"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.exception.APIException"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="com.google.firebase.auth.FirebaseAuth"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.payload.ErrorDetails"/>
+    <fullyQualifiedTypeName name="com.google.firebase.auth.FirebaseAuthException"/>
+</qualifiedTypeNameHistroy>
