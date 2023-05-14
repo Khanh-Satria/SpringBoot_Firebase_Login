@@ -34,4 +34,5 @@
     <fullyQualifiedTypeName name="com.google.firebase.auth.FirebaseAuth"/>
     <fullyQualifiedTypeName name="com.springboot.sharework.payload.ErrorDetails"/>
     <fullyQualifiedTypeName name="com.google.firebase.auth.FirebaseAuthException"/>
+    <fullyQualifiedTypeName name="com.springboot.sharework.config.service.AuthenService"/>
 </qualifiedTypeNameHistroy>

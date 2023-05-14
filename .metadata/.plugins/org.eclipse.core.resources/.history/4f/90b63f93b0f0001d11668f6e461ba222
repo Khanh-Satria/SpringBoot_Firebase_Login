@@ -20,6 +20,8 @@ import com.springboot.sharework.payload.SignInResponse;
 @RequestMapping("api/auth")
 public class AuthContronller {
 
+	@Value("${firebase.apiKey}")
+    private String apiKey;
 	
 	private AuthenService authenService;
 	
